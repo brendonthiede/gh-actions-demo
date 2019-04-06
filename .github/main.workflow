@@ -4,18 +4,18 @@ workflow "Just Build It" {
 }
 
 action "Install npm dependencies" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "actions/npm@master"
   args = "ci"
 }
 
 action "Lint the code" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "actions/npm@master"
   needs = ["Install npm dependencies"]
   args = "run lint"
 }
 
 action "Build the app" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "actions/npm@master"
   needs = ["Lint the code"]
   args = "run build"
 }
